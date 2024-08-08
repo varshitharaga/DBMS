@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Type</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            margin: 50px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-image: url("https://static.vecteezy.com/system/resources/previews/001/632/456/non_2x/abstract-gray-circles-overlapping-with-halftone-dot-free-vector.jpg");
+        }
+
+        form {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        h2, h3 {
+            color: #333333;
+            font-family:'Times New Roman', Times, serif;
+            font-size: x-large;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="radio"] {
+            margin: 0 5px;
+        }
+
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            display: none;
+        }
+
+        .user-type-container {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+
+        .user-type-option {
+            flex: 1;
+            text-align: center;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .user-type-option:hover {
+            background-color: #f0f0f0;
+        }
+
+        .selected-option {
+            background-color: #4caf50;
+            color: #fff;
+        }
+
+    </style>
+</head>
+<body>
+
+<h2>User Type</h2>
+
+<form action="php_delete_worker.php" method="POST" id="commonForm">
+    <div class="user-type-container">
+        <div class="user-type-option" onclick="showForm('workerForm')">
+            <input type="radio" name="selectedForm" id="workerRadio" style="display: none;">
+            <label for="workerRadio">Worker</label>
+        </div>
+        <div class="user-type-option" onclick="showForm('clientForm')">
+            <input type="radio" name="selectedForm" id="clientRadio" style="display: none;">
+            <label for="clientRadio">Client</label>
+        </div>
+        
+    </div>
+</form>
+
+
+<!-- Worker Form -->
+    <form action="php_delete_worker.php" method="POST" id="workerForm" >
+    <input type="hidden" name="userType" value="worker">
+    <h3>Delete a Record</h3>
+    <!-- ... (worker form fields) ... -->
+
+    <label for="worker_id">Worker ID:</label>
+    <input type="text" name="worker_id" required><br>
+
+    <button type="submit" style="display: inline-block;
+    padding: 40px 80px; /* Increase button size */
+    font-size: 24px;
+    margin: 10px;
+    cursor: pointer;
+    background-color: #e43d17;
+      color: #fff;
+    border: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);" name="action" value="delete">Delete</button>
+</form>
+
+<!-- Client Form -->
+<form action="php_delete_client.php" method="POST" id="clientForm">
+    <input type="hidden" name="userType" value="client">
+    <h3>Delete a Record</h3>
+    <!-- ... (client form fields) ... -->
+
+    <label for="client_id">Client ID:</label>
+    <input type="text" name="client_id" required><br>
+
+    <button type="submit" style="display: inline-block;
+    padding: 40px 80px; /* Increase button size */
+    font-size: 24px;
+    margin: 10px;
+    cursor: pointer;
+    background-color: #e43d17;
+      color: #fff;
+    border: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);" name="action" value="delete">Delete</button>
+</form>
+
+<!-- Common Form Elements -->
+
+<script>
+    function showForm(formId) {
+        // Hide all forms
+        document.getElementById("workerForm").style.display = "none";
+        document.getElementById("clientForm").style.display = "none";
+
+        // Show the selected form
+        document.getElementById(formId).style.display = "block";
+    }
+    function submitForm(event) {
+        event.preventDefault(); // Prevent the default form submission
+
+        // Your existing code for hiding forms
+        document.getElementById("workerForm").style.display = "none";
+        document.getElementById("clientForm").style.display = "none";
+
+        // Show the success message
+        document.getElementById("successMessage").style.display = "block";
+        return false;
+    }
+    
+</script>
+
+</body>
+</html>

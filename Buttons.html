@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manage Your Account</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom, #f0f1f2, #eef0f1);
+      color: #fff;
+      background-image:url("https://static.vecteezy.com/system/resources/previews/001/632/456/non_2x/abstract-gray-circles-overlapping-with-halftone-dot-free-vector.jpg");
+    }
+
+    h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
+      color: #fff;
+      background-color: #4a5055;
+      padding: 10px;
+      border-radius: 8px;
+    }
+
+    .button-container {
+      margin-top: 100px;
+      display: flex;
+      flex-direction: column; /* Align buttons vertically */
+      align-items: center;
+    }
+
+    button {
+      display: inline-block;
+      padding: 50px 100px; /* Increase button size */
+      font-size: 24px;
+      margin: 10px;
+      cursor: pointer;
+      border: none;
+      border-radius: 8px;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    #createButton {
+      background-color: #aa7f88;
+      color: #fff;
+    }
+
+    #updateButton {
+      background-color: #9b59b6;
+      color: #fff;
+    }
+
+    #deleteButton {
+      background-color: #70943a;
+      color: #fff;
+    }
+
+    button:hover {
+      background-color: #555;
+      transform: scale(1.05);
+    }
+  </style>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      document.getElementById("createButton").addEventListener("click", function() {
+        // Redirect to the desired HTML file when the "Create" button is clicked
+        window.location.href = "accountcreate.html";
+      });
+    });
+    document.addEventListener("DOMContentLoaded", function() {
+      document.getElementById("updateButton").addEventListener("click", function() {
+        // Redirect to the desired HTML file when the "Update" button is clicked
+        window.location.href = "Update.html";
+      });
+    });
+    document.addEventListener("DOMContentLoaded", function() {
+      document.getElementById("deleteButton").addEventListener("click", function() {
+        // Redirect to the desired HTML file when the "Delete" button is clicked
+        window.location.href = "delete.html";
+      });
+    });
+  </script>
+</head>
+<body>
+
+  <h1>Manage Your Account</h1>
+
+  <div class="button-container">
+    <button id="createButton">Create</button>
+    <button id="updateButton">Update</button>
+    <button id="deleteButton">Delete</button>
+  </div>
+
+</body>
+</html>

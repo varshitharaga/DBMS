@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Type</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-image: url("https://static.vecteezy.com/system/resources/previews/001/632/456/non_2x/abstract-gray-circles-overlapping-with-halftone-dot-free-vector.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+    
+        form {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 0 auto;
+            margin-top: 20px;
+        }
+    
+        h2, h3 {
+            color: #333333;
+            font-family:'Times New Roman', Times, serif;
+            font-size: x-large;
+        }
+    
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            color: #555555;
+            font-size: 16px;
+            font-family: 'Tahoma', sans-serif;
+        }
+    
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            border: 1px solid #cccccc;
+            border-radius: 5px;
+            font-size: 16px;
+            font-family: 'Tahoma', sans-serif;
+        }
+    
+        input[type="radio"] {
+            margin: 0 5px;
+        }
+    
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: #ffffff;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            font-family: 'Tahoma', sans-serif;
+        }
+    
+        .user-type-container {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+    
+        .user-type-option {
+            flex: 1;
+            text-align: center;
+            padding: 15px;
+            border: 2px solid #cccccc;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+            font-family: 'Tahoma', sans-serif;
+        }
+    
+        .user-type-option:hover {
+            background-color: #f0f0f0;
+            border-color: #999999;
+        }
+    
+        .selected-option {
+            background-color: #4caf50;
+            color: #ffffff;
+            border-color: #4caf50;
+        }
+    
+        #successMessage {
+            display: none;
+            color: #4caf50;
+            font-weight: bold;
+            margin-top: 10px;
+            font-family: 'Tahoma', sans-serif;
+        }
+    </style>
+</head>
+<body>
+
+<h2>User Type</h2>
+
+<form id="commonForm">
+    <div class="user-type-container">
+        <div class="user-type-option" onclick="showForm('workerForm')">
+            <input type="radio" name="selectedForm" id="workerRadio" style="display: none;">
+            <label for="workerRadio">Worker</label>
+        </div>
+        <div class="user-type-option" onclick="showForm('clientForm')">
+            <input type="radio" name="selectedForm" id="clientRadio" style="display: none;">
+            <label for="clientRadio">Client</label>
+        </div>
+        
+    </div>
+</form>
+
+<!-- Worker Form -->
+<form action="php_code.php" method="POST" id="workerForm" >
+    <input type="hidden" name="userType" value="worker">
+    <h3>Worker Details</h3>
+
+    <label for="wfirst_name">First Name:</label>
+    <input type="text" name="wfirst_name" required><br>
+
+    <label for="wlast_name">Last Name:</label>
+    <input type="text" name="wlast_name" required><br>
+
+    <label for="worker_id">Worker ID:</label>
+    <input type="text" name="worker_id" required><br>
+
+    <label for="wcity">City:</label>
+    <input type="text" name="wcity" required><br>
+
+    <label for="wstate">State:</label>
+    <input type="text" name="wstate" required><br>
+
+    <label for="wpin_code">Pincode:</label>
+    <input type="text" name="wpin_code" required><br>
+
+    <button type="submit" style="display: inline-block;
+    padding: 40px 80px; /* Increase button size */
+    font-size: 24px;
+    margin: 10px;
+    cursor: pointer;
+    background-color: #33a265;
+      color: #fff;
+    border: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">Submit</button>
+</form>
+
+<!-- Client Form -->
+<form action="php_code1.php" method="POST" id="clientForm" >
+    <input type="hidden" name="userType" value="client">
+    <h3>Client Details</h3>
+
+    <label for="cfirst_name">First Name:</label>
+    <input type="text" name="cfirst_name" required><br>
+
+    <label for="clast_name">Last Name:</label>
+    <input type="text" name="clast_name" required><br>
+
+    <label for="client_id">Client ID:</label>
+    <input type="text" name="client_id" required><br>
+
+    <label for="ccity">City:</label>
+    <input type="text" name="ccity" required><br>
+
+    <label for="cstate">State:</label>
+    <input type="text" name="cstate" required><br>
+
+    <label for="cpin_code">Pincode:</label>
+    <input type="text" name="cpin_code" required><br>
+
+    <button type="submit" style="display: inline-block;
+    padding: 40px 80px; /* Increase button size */
+    font-size: 24px;
+    margin: 10px;
+    cursor: pointer;
+    background-color: #33a265;
+      color: #fff;
+    border: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">Submit</button>
+</form>
+
+<!-- Common Form Elements -->
+
+<script>
+    function showForm(formId) {
+        // Hide all forms
+        document.getElementById("workerForm").style.display = "none";
+        document.getElementById("clientForm").style.display = "none";
+
+        // Show the selected form
+        document.getElementById(formId).style.display = "block";
+    }
+    
+
+</script>
+
+</body>
+</html>
